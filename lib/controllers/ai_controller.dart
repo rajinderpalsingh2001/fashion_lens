@@ -16,9 +16,7 @@ class AiController extends GetxController {
   XFile? userImage;
   OutfitImageResponse? aiGeneratedUserImage;
   OutfitSuggestionResponse? outfitSuggestions;
-  TextEditingController whereAreYouGoingController = TextEditingController(
-    text: "I am going to corporate office for giving session",
-  );
+  TextEditingController whereAreYouGoingController = TextEditingController();
 
   void clearFields() {
     whereAreYouGoingController.clear();
