@@ -184,66 +184,69 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Widget _userSelectedImageContainer() {
-    return Stack(
-      children: [
-        Expanded(
-          child: PrimaryImage(
-            heroTag: "user-image",
-            height: double.maxFinite,
-            borderRadius: 30.0,
-            xFile: aiController.userImage!,
+    return Padding(
+      padding: EdgeInsets.only(bottom: 12.0),
+      child: Stack(
+        children: [
+          Expanded(
+            child: PrimaryImage(
+              heroTag: "user-image",
+              height: double.maxFinite,
+              borderRadius: 30.0,
+              xFile: aiController.userImage!,
+            ),
           ),
-        ),
-        Positioned(
-          right: 0,
-          bottom: -4,
-          child: TextButton.icon(
-            style: ButtonStyle(
-              shape: WidgetStatePropertyAll(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30.0),
-                    topRight: Radius.zero,
-                    bottomLeft: Radius.zero,
-                    bottomRight: Radius.circular(30.0),
+          Positioned(
+            right: 0,
+            bottom: -4,
+            child: TextButton.icon(
+              style: ButtonStyle(
+                shape: WidgetStatePropertyAll(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30.0),
+                      topRight: Radius.zero,
+                      bottomLeft: Radius.zero,
+                      bottomRight: Radius.circular(30.0),
+                    ),
                   ),
                 ),
+                backgroundColor: WidgetStatePropertyAll(AppTheme.milkyWhite),
               ),
-              backgroundColor: WidgetStatePropertyAll(AppTheme.milkyWhite),
-            ),
-            onPressed: _pickImage,
-            icon: Icon(
-              HugeIcons.strokeRoundedImageAdd02,
-              color: AppTheme.nagarroDarkBlue,
-            ),
-            label: Text(
-              "Change",
-              style: TextStyle(color: AppTheme.nagarroDarkBlue),
-            ),
-          ),
-        ),
-
-        Positioned(
-          right: 4,
-          top: 6,
-          child: IconButton.filled(
-            padding: EdgeInsets.all(12.0),
-            style: ButtonStyle(
-              backgroundColor: WidgetStatePropertyAll(AppTheme.milkyWhite),
-            ),
-            onPressed: () {
-              setState(() {
-                aiController.userImage = null;
-              });
-            },
-            icon: Icon(
-              HugeIcons.strokeRoundedCancel01,
-              color: AppTheme.nagarroDarkBlue,
-              size: 18.0,
+              onPressed: _pickImage,
+              icon: Icon(
+                HugeIcons.strokeRoundedImageAdd02,
+                color: AppTheme.nagarroDarkBlue,
+              ),
+              label: Text(
+                "Change",
+                style: TextStyle(color: AppTheme.nagarroDarkBlue),
+              ),
             ),
           ),
-        ),
-      ],
+      
+          Positioned(
+            right: 4,
+            top: 6,
+            child: IconButton.filled(
+              padding: EdgeInsets.all(12.0),
+              style: ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(AppTheme.milkyWhite),
+              ),
+              onPressed: () {
+                setState(() {
+                  aiController.userImage = null;
+                });
+              },
+              icon: Icon(
+                HugeIcons.strokeRoundedCancel01,
+                color: AppTheme.nagarroDarkBlue,
+                size: 18.0,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
